@@ -11,6 +11,9 @@ const links = [
   { title: "Kontakt", href: "#contact" },
 ];
 
+const addressUrl =
+  "https://www.google.com/maps/search/?api=1&query=Engelbrektsgatan+11%2C+582+21+Link%C3%B6ping";
+
 export default function Footer() {
   return (
     <footer className="border-t border-[#D4AF37]/25 bg-black px-4 py-8">
@@ -20,9 +23,9 @@ export default function Footer() {
             <Image
               src="/images/diana-logo-test.png"
               alt="Diana Beauty logotyp"
-              width={130}
-              height={55}
-              className="h-auto w-[115px]"
+              width={180}
+              height={75}
+              className="block h-auto w-[140px] object-contain object-left"
             />
 
             <p className="mt-3 max-w-[230px] text-[11px] leading-5 text-gray-400">
@@ -71,10 +74,19 @@ export default function Footer() {
                 dianabeauty.db@gmail.com
               </a>
 
-              <div className="flex items-center gap-2 text-[11px] text-gray-300">
-                <MapPin className="h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
-                Linköping
-              </div>
+              <a
+                href={addressUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 text-[11px] leading-5 text-gray-300 transition hover:text-[#D4AF37]"
+              >
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
+                <span>
+                  Engelbrektsgatan 11
+                  <br />
+                  582 21 Linköping
+                </span>
+              </a>
 
               <a
                 href="https://www.instagram.com/dianabeauty.db"
@@ -95,7 +107,7 @@ export default function Footer() {
           </p>
 
           <p className="text-[10px] text-gray-500">
-            Linköping · Sverige
+            Engelbrektsgatan 11 · Linköping
           </p>
 
           <p className="text-[10px] text-gray-500">

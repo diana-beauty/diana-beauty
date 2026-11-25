@@ -29,6 +29,8 @@ const contactItems = [
   },
 ];
 
+const address = "Engelbrektsgatan 11, 582 21 Linköping";
+
 export default function Contact() {
   return (
     <section
@@ -81,13 +83,23 @@ export default function Contact() {
             );
           })}
 
-          <div className="flex items-center gap-3">
-            <MapPin className="h-4 w-4 shrink-0 text-[#D4AF37]" />
+          <div className="flex items-start gap-3">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#D4AF37]" />
             <div>
               <p className="text-[10px] uppercase tracking-wider text-[#D4AF37]">
-                Plats
+                Besöksadress
               </p>
-              <p className="text-xs text-white">Linköping</p>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Engelbrektsgatan+11%2C+582+21+Link%C3%B6ping"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs leading-5 text-white transition hover:text-[#D4AF37]"
+              >
+                Engelbrektsgatan 11
+                <br />
+                582 21 Linköping
+              </a>
             </div>
           </div>
 

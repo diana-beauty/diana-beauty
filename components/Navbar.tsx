@@ -50,15 +50,20 @@ export default function Navbar() {
       }`}
     >
       <nav className="flex h-20 w-full items-center justify-between gap-3 px-4 lg:px-6">
+
         {/* Logotyp */}
-        <a href="#hero" className="flex shrink-0 items-center">
+        <a
+          href="#hero"
+          aria-label="Diana Beauty – startsida"
+          className="flex h-full shrink-0 items-center"
+        >
           <Image
             src="/images/diana-logo-test.png"
             alt="Diana Beauty"
-            width={140}
-            height={58}
+            width={180}
+            height={75}
             priority
-            className="h-auto w-[110px] transition duration-300 hover:scale-105 lg:w-[130px]"
+            className="block h-auto max-h-[75px] w-[180px] rounded-2xl object-contain object-left transition duration-300 hover:scale-[1.03] lg:w-[195px]"
           />
         </a>
 
