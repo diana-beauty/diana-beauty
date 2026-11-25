@@ -1,35 +1,49 @@
 
-"use client";
-
-import { useState } from "react";
 import {
   CalendarDays,
+  ArrowRight,
+  Sparkles,
   Clock,
   CheckCircle2,
-  ArrowRight,
 } from "lucide-react";
 
-const treatments = [
-  { name: "Singelfransar", price: "800 kr", time: "90 min" },
-  { name: "Mixfransar", price: "900 kr", time: "105 min" },
-  { name: "Mega Volym", price: "1 000 kr", time: "120 min" },
-  { name: "Påfyllning", price: "600 kr", time: "60 min" },
-  { name: "Brow Lift", price: "650 kr", time: "60 min" },
-  { name: "Lash Lift", price: "650 kr", time: "60 min" },
+const bookingUrl =
+  "https://www.bokadirekt.se/places/dianabeauty-52970#services";
+
+const categories = [
+  {
+    title: "Nytt set fransförlängning",
+    description: "Singel, mix, volym, mega volym och wispy.",
+  },
+  {
+    title: "Påfyllning",
+    description: "Påfyllning och Quickfix.",
+  },
+  {
+    title: "Lash Lift & Brow Lift",
+    description: "Lyft, färgning och keratinbehandlingar.",
+  },
+  {
+    title: "Paketbehandlingar",
+    description: "Kombinera fransförlängning och Brow Lift.",
+  },
+  {
+    title: "Trådning & färgning",
+    description: "Forma och framhäv bryn och fransar.",
+  },
+  {
+    title: "Massage",
+    description: "Skalp- och ansiktsmassage.",
+  },
 ];
 
-const bookingUrl =
-  "https://www.bokadirekt.se/places/dianabeauty-52970";
-
 export default function BookingPanel() {
-  const [selected, setSelected] = useState("Singelfransar");
-
   return (
     <section
       id="booking"
       className="w-full rounded-2xl border border-[#D4AF37]/30 bg-[#FAF8F3] p-5 text-[#292521] shadow-lg"
     >
-      <div className="mb-5 text-center">
+      <div className="mb-6 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#A8873E]">
           Diana Beauty
         </p>
@@ -38,94 +52,85 @@ export default function BookingPanel() {
           Boka din behandling
         </h2>
 
-        <p className="mt-1 text-sm text-gray-600">
-          Välj din behandling och fortsätt till bokningen.
+        <p className="mt-2 text-sm leading-6 text-gray-600">
+          Hitta behandlingen som passar dig och boka din tid enkelt online.
         </p>
       </div>
 
-      {/* Bokningssteg */}
-      <div className="mb-5 grid grid-cols-4 gap-2">
-        {[
-          { icon: CalendarDays, title: "Behandling" },
-          { icon: CalendarDays, title: "Datum" },
-          { icon: Clock, title: "Tid" },
-          { icon: CheckCircle2, title: "Bekräftelse" },
-        ].map((step, index) => {
-          const Icon = step.icon;
+      <div className="mb-5 grid grid-cols-3 gap-2">
+        <div className="rounded-lg border border-[#E5D9C5] bg-white p-3 text-center">
+          <Sparkles className="mx-auto h-5 w-5 text-[#B18B38]" />
+          <p className="mt-2 text-[10px] font-semibold">
+            Behandling
+          </p>
+        </div>
 
-          return (
-            <div
-              key={step.title}
-              className="rounded-lg border border-[#E5D9C5] bg-white p-2 text-center"
-            >
-              <Icon className="mx-auto h-5 w-5 text-[#B18B38]" />
+        <div className="rounded-lg border border-[#E5D9C5] bg-white p-3 text-center">
+          <CalendarDays className="mx-auto h-5 w-5 text-[#B18B38]" />
+          <p className="mt-2 text-[10px] font-semibold">
+            Datum & tid
+          </p>
+        </div>
 
-              <p className="mt-2 text-[10px] font-semibold">
-                {index + 1}. {step.title}
-              </p>
-            </div>
-          );
-        })}
+        <div className="rounded-lg border border-[#E5D9C5] bg-white p-3 text-center">
+          <CheckCircle2 className="mx-auto h-5 w-5 text-[#B18B38]" />
+          <p className="mt-2 text-[10px] font-semibold">
+            Bekräftelse
+          </p>
+        </div>
       </div>
 
-      {/* Behandlingar */}
       <div className="rounded-xl border border-[#E5D9C5] bg-white p-4">
         <h3 className="mb-3 text-sm font-bold uppercase tracking-wider">
-          Välj behandling
+          Våra behandlingar
         </h3>
 
         <div className="space-y-2">
-          {treatments.map((treatment) => (
-            <button
-              key={treatment.name}
-              type="button"
-              aria-pressed={selected === treatment.name}
-              onClick={() => setSelected(treatment.name)}
-              className={`flex w-full items-center justify-between rounded-lg border p-3 text-left transition ${
-                selected === treatment.name
-                  ? "border-[#B18B38] bg-[#F5EEDC]"
-                  : "border-[#EEE9DF] bg-[#FAF8F3] hover:border-[#B18B38]"
-              }`}
+          {categories.map((category) => (
+            <div
+              key={category.title}
+              className="rounded-lg border border-[#EEE9DF] bg-[#FAF8F3] p-3"
             >
-              <div>
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 shrink-0 text-[#B18B38]" />
                 <p className="text-sm font-semibold">
-                  {treatment.name}
-                </p>
-
-                <p className="text-xs text-gray-500">
-                  {treatment.time}
+                  {category.title}
                 </p>
               </div>
 
-              <span className="text-sm font-bold text-[#96732D]">
-                {treatment.price}
-              </span>
-            </button>
+              <p className="ml-6 mt-1 text-xs leading-5 text-gray-500">
+                {category.description}
+              </p>
+            </div>
           ))}
         </div>
 
-        {/* Vald behandling */}
         <div className="mt-4 rounded-lg bg-[#F5EEDC] p-3">
-          <p className="text-xs text-gray-600">
-            Din valda behandling
-          </p>
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4 text-[#96732D]" />
+            <p className="text-xs font-semibold">
+              Boka när det passar dig
+            </p>
+          </div>
 
-          <p className="font-semibold">{selected}</p>
+          <p className="mt-2 text-xs leading-5 text-gray-600">
+            Se aktuella priser, behandlingstider och lediga tider
+            direkt i bokningssystemet.
+          </p>
         </div>
 
-        {/* Fortsätt till Bokadirekt */}
         <a
           href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#B18B38] px-6 py-3 font-semibold text-white transition hover:bg-[#96732D]"
         >
-          Fortsätt till bokning
+          Boka din tid
           <ArrowRight size={18} />
         </a>
 
         <p className="mt-3 text-center text-xs text-gray-500">
-          Datum, lediga tider och bokningsbekräftelse hanteras hos Bokadirekt.
+          Bokningen hanteras säkert via Bokadirekt.
         </p>
       </div>
     </section>

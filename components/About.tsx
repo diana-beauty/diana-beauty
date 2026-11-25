@@ -41,7 +41,9 @@ export default function About() {
         </div>
 
         <a
-          href="#booking"
+          href="https://www.bokadirekt.se/places/dianabeauty-52970"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-5 inline-flex items-center rounded-sm border border-[#B18B38] px-3 py-2 text-[10px] font-semibold uppercase tracking-wide text-[#D4AF37] transition hover:bg-[#B18B38] hover:text-black"
         >
           Boka behandling

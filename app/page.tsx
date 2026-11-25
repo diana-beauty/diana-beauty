@@ -14,18 +14,19 @@ export default function Home() {
     <main className="min-h-screen w-full bg-[#080808]">
       <div className="grid w-full grid-cols-1 items-start md:grid-cols-[minmax(0,1fr)_360px]">
 
-        {/* Vänster sida */}
+        {/* Hemsidans huvudinnehåll */}
         <div className="min-w-0 overflow-hidden">
           <Navbar />
+
           <Hero />
 
-          {/* Behandlingar och galleri */}
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-            <Services />
-            <Gallery />
-          </div>
+          {/* Behandlingar */}
+          <Services />
 
-          {/* Om Diana, omdömen och kontakt */}
+          {/* Informationssektion */}
+          <Gallery />
+
+          {/* Om Diana, kundomdömen och kontakt */}
           <div className="grid grid-cols-1 gap-0 border-t border-[#D4AF37]/20 md:grid-cols-3">
             <div className="border-b border-[#D4AF37]/20 md:border-b-0 md:border-r">
               <About />
@@ -43,7 +44,7 @@ export default function Home() {
           <Footer />
         </div>
 
-        {/* Höger sida – bokningspanel */}
+        {/* Bokningspanel */}
         <aside className="min-w-0 w-full bg-[#080808] p-3 md:sticky md:top-0 md:h-screen md:overflow-y-auto">
           <BookingPanel />
         </aside>

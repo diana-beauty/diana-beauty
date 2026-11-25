@@ -5,6 +5,7 @@ import {
   AtSign,
   MapPin,
   Clock,
+  CalendarDays,
 } from "lucide-react";
 
 const contactItems = [
@@ -35,7 +36,6 @@ export default function Contact() {
       className="h-full min-w-0 bg-[#080808] px-4 py-6"
     >
       <div className="min-w-0">
-
         <p className="text-[11px] font-semibold uppercase tracking-wider text-[#D4AF37]">
           Kontakt
         </p>
@@ -67,7 +67,11 @@ export default function Contact() {
                   <a
                     href={item.href}
                     target={item.label === "Instagram" ? "_blank" : undefined}
-                    rel={item.label === "Instagram" ? "noopener noreferrer" : undefined}
+                    rel={
+                      item.label === "Instagram"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="break-all text-xs text-white transition hover:text-[#D4AF37]"
                   >
                     {item.value}
@@ -98,6 +102,15 @@ export default function Contact() {
           </div>
         </div>
 
+        <a
+          href="https://www.bokadirekt.se/places/dianabeauty-52970"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#D4AF37] px-4 py-3 text-xs font-bold uppercase tracking-wider text-black transition hover:bg-[#e7c85b]"
+        >
+          <CalendarDays className="h-4 w-4" />
+          Boka en tid
+        </a>
       </div>
     </section>
   );

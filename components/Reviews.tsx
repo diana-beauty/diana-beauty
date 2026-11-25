@@ -21,7 +21,6 @@ export default function Reviews() {
       className="h-full min-w-0 bg-[#080808] px-3 py-6"
     >
       <div className="min-w-0">
-
         <p className="text-[11px] font-semibold uppercase tracking-wider text-[#D4AF37]">
           Kundernas ord
         </p>
@@ -36,14 +35,17 @@ export default function Reviews() {
           {reviews.map((review) => (
             <article
               key={review.name}
-              className="rounded-md border border-white/10 bg-[#141414] p-3"
+              className="rounded-md border border-[#D4AF37]/20 bg-[#141414] p-3 transition hover:border-[#D4AF37]/50"
             >
-              <div className="text-sm tracking-wider text-[#D4AF37]">
+              <div
+                className="text-sm tracking-wider text-[#D4AF37]"
+                aria-label="5 av 5 stjärnor"
+              >
                 ★★★★★
               </div>
 
               <p className="mt-2 text-[11px] leading-5 text-gray-300">
-                "{review.text}"
+                ”{review.text}”
               </p>
 
               <div className="mt-3 border-t border-white/10 pt-2">
@@ -57,7 +59,6 @@ export default function Reviews() {
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );
