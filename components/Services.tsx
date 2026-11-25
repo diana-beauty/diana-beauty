@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -19,31 +20,38 @@ const services = [
   },
   {
     title: "Mega Volym",
-    price: "1000 kr",
+    price: "1 000 kr",
     time: "120 min",
     image: "/images/service-volume.jpg",
     text: "Maximal fyllighet med en dramatisk look.",
   },
   {
+    title: "Påfyllning",
+    price: "600 kr",
+    time: "60 min",
+    image: "/images/service-single.jpg",
+    text: "Förläng livslängden på dina fransar.",
+  },
+  {
     title: "Wispy / Wet Look",
-    price: "1000 kr",
+    price: "1 000 kr",
     time: "120 min",
     image: "/images/service-wispy.jpg",
-    text: "Trendig stil med luftiga och markerade fransar.",
+    text: "Luftiga och markerade fransar.",
   },
   {
     title: "Lash Lift",
     price: "650 kr",
     time: "60 min",
     image: "/images/service-lashlift.jpg",
-    text: "Naturligt lyft och böj av dina egna fransar.",
+    text: "Naturligt lyft av dina egna fransar.",
   },
   {
     title: "Brow Lift",
     price: "650 kr",
     time: "60 min",
     image: "/images/service-browlift.jpg",
-    text: "Perfekt formade bryn med ett naturligt lyft.",
+    text: "Formade bryn med ett naturligt lyft.",
   },
 ];
 
@@ -51,85 +59,82 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-[#0b0b0b] py-28 px-6"
+      className="bg-[#080808] px-4 py-8 md:px-5 md:py-10"
     >
       <div className="mx-auto max-w-7xl">
 
-        <div className="mb-16 text-center">
-
-          <p className="text-sm uppercase tracking-[0.4em] text-[#D4AF37]">
-            Våra behandlingar
+        {/* Rubrik */}
+        <div className="mb-7 text-center">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D4AF37]">
+            Våra populära behandlingar
           </p>
 
-          <h2 className="mt-4 text-5xl font-light text-white">
+          <h2 className="mt-2 font-serif text-2xl text-white md:text-3xl">
             Exklusiva behandlingar
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-gray-400">
-            Professionella frans- och brynbehandlingar med fokus på kvalitet,
-            precision och ett naturligt elegant resultat.
-          </p>
-
+          <div className="mx-auto mt-2 h-px w-12 bg-[#B18B38]" />
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {/* Behandlingskort */}
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
 
           {services.map((service) => (
-
-            <div
+            <article
               key={service.title}
-              className="group overflow-hidden rounded-3xl border border-[#D4AF37]/20 bg-[#171717] transition-all duration-500 hover:-translate-y-3 hover:border-[#D4AF37] hover:shadow-[0_25px_70px_rgba(212,175,55,0.30)]"
+              className="group overflow-hidden rounded-lg border border-[#D4AF37]/20 bg-[#141414] transition duration-300 hover:border-[#D4AF37] hover:shadow-[0_0_18px_rgba(212,175,55,0.12)]"
             >
-
-              <div className="relative h-80 overflow-hidden">
-
+              {/* Bild */}
+              <div className="relative h-24 overflow-hidden sm:h-28">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-110"
+                  sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 15vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-
-                <div className="absolute right-5 top-5 rounded-full bg-[#D4AF37] px-5 py-2 font-bold text-black shadow-xl">
+                <div className="absolute right-1.5 top-1.5 rounded-full bg-[#D4AF37] px-2 py-1 text-[9px] font-bold text-black">
                   {service.price}
                 </div>
-
               </div>
 
-              <div className="p-8">
-
-                <h3 className="text-2xl font-semibold text-white transition duration-300 group-hover:text-[#D4AF37]">
+              {/* Information */}
+              <div className="p-2 sm:p-3">
+                <h3 className="text-xs font-semibold text-white">
                   {service.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-gray-400">
+                <p className="mt-1 min-h-8 text-[9px] leading-4 text-gray-400">
                   {service.text}
                 </p>
 
-                <div className="mt-8 flex items-center justify-between">
-
-                  <span className="font-medium text-[#D4AF37]">
+                <div className="mt-2 flex items-center justify-between gap-1 border-t border-white/10 pt-2">
+                  <span className="text-[9px] text-[#D4AF37]">
                     {service.time}
                   </span>
 
                   <a
-                    href="#contact"
-                    className="rounded-full border border-[#D4AF37] px-6 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-[#D4AF37] hover:text-black hover:shadow-[0_0_25px_rgba(212,175,55,0.35)]"
+                    href="#booking"
+                    className="rounded-full border border-[#B18B38] px-3 py-1 text-[9px] font-semibold text-white transition hover:bg-[#B18B38] hover:text-black"
                   >
                     Boka
                   </a>
-
                 </div>
-
               </div>
-
-            </div>
-
+            </article>
           ))}
 
+        </div>
+
+        {/* Visa alla */}
+        <div className="mt-5 text-center">
+          <a
+            href="#contact"
+            className="inline-block rounded-sm border border-[#B18B38] px-5 py-2 text-[9px] font-semibold uppercase tracking-wider text-[#D4AF37] transition hover:bg-[#B18B38] hover:text-black"
+          >
+            Fråga om behandlingar
+          </a>
         </div>
 
       </div>

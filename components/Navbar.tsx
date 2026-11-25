@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -12,6 +13,9 @@ const links = [
   { title: "Omdömen", href: "#reviews" },
   { title: "Kontakt", href: "#contact" },
 ];
+
+const bookingUrl =
+  "https://www.bokadirekt.se/places/dianabeauty-52970";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,32 +43,32 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+      className={`sticky top-0 z-40 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-[#D4AF37]/20 bg-black/75 backdrop-blur-2xl shadow-2xl"
-          : "bg-transparent"
+          ? "border-b border-[#D4AF37]/20 bg-black/90 shadow-2xl backdrop-blur-2xl"
+          : "bg-black/30"
       }`}
     >
-      <nav className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6 lg:px-8">
-
-        <a href="#hero" className="flex items-center">
+      <nav className="flex h-20 w-full items-center justify-between gap-3 px-4 lg:px-6">
+        {/* Logotyp */}
+        <a href="#hero" className="flex shrink-0 items-center">
           <Image
             src="/images/diana-logo-test.png"
             alt="Diana Beauty"
-            width={170}
-            height={70}
+            width={140}
+            height={58}
             priority
-            style={{ height: "auto" }}
-            className="transition duration-300 hover:scale-105"
+            className="h-auto w-[110px] transition duration-300 hover:scale-105 lg:w-[130px]"
           />
         </a>
 
-        <ul className="hidden items-center gap-10 text-sm uppercase tracking-[0.18em] text-white lg:flex">
+        {/* Dator-menyn */}
+        <ul className="hidden items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-white lg:flex xl:gap-6">
           {links.map((link) => (
             <li key={link.title}>
               <a
                 href={link.href}
-                className="relative transition duration-300 hover:text-[#D4AF37] after:absolute after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-[#D4AF37] after:transition-all after:duration-300 hover:after:w-full"
+                className="transition duration-300 hover:text-[#D4AF37]"
               >
                 {link.title}
               </a>
@@ -72,63 +76,59 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
-
+        {/* Bokningsknapp och mobilmeny */}
+        <div className="flex shrink-0 items-center gap-3">
           <a
-            href="https://www.bokadirekt.se/places/dianabeauty-52970"
+            href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-full bg-[#D4AF37] px-7 py-3 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-[#e7c85b] hover:shadow-[0_0_30px_rgba(212,175,55,0.35)] md:inline-flex"
+            className="hidden rounded-full bg-[#D4AF37] px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-[#e7c85b] md:inline-flex"
           >
             Boka tid
           </a>
 
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-white lg:hidden"
-            aria-label="Öppna meny"
+            aria-label={menuOpen ? "Stäng meny" : "Öppna meny"}
+            aria-expanded={menuOpen}
           >
-            {menuOpen ? <X size={30} /> : <Menu size={30} />}
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
-
         </div>
-
       </nav>
 
+      {/* Mobilmeny */}
       <div
         className={`overflow-hidden transition-all duration-500 lg:hidden ${
           menuOpen ? "max-h-[600px]" : "max-h-0"
         }`}
       >
         <div className="border-t border-[#D4AF37]/20 bg-black/95 backdrop-blur-xl">
-
-          <div className="flex flex-col space-y-6 px-8 py-8">
-
+          <div className="flex flex-col space-y-5 px-6 py-6">
             {links.map((link) => (
               <a
                 key={link.title}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-lg text-white transition hover:text-[#D4AF37]"
+                className="text-base text-white transition hover:text-[#D4AF37]"
               >
                 {link.title}
               </a>
             ))}
 
             <a
-              href="https://www.bokadirekt.se/places/dianabeauty-52970"
+              href={bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-[#D4AF37] py-3 text-center font-semibold text-black transition hover:bg-[#e7c85b]"
             >
               Boka tid
             </a>
-
           </div>
-
         </div>
       </div>
-
     </header>
   );
 }

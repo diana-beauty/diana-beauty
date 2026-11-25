@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -6,126 +7,123 @@ import {
   Star,
   Heart,
   MapPin,
-  ChevronDown,
 } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full overflow-hidden"
+      className="relative min-h-[340px] w-full overflow-hidden bg-[#080808] md:min-h-[390px]"
     >
-      {/* Background */}
+      {/* Bakgrundsbild */}
       <Image
         src="/images/hero.jpg"
-        alt="Diana Beauty"
+        alt="Diana Beauty – frans- och brynbehandlingar"
         fill
         priority
-        quality={100}
-        className="object-cover scale-105 transition-transform duration-[8000ms] hover:scale-110"
+        sizes="(max-width: 768px) 100vw, 60vw"
+        className="object-cover object-center"
       />
 
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 to-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+      {/* Mörka lager */}
+      <div className="absolute inset-0 bg-black/35" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10" />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pt-20">
-        <div className="max-w-2xl">
+      {/* Innehåll */}
+      <div className="relative z-10 flex min-h-[340px] items-center px-5 py-10 md:min-h-[390px] md:px-8">
+        <div className="max-w-[540px]">
 
-          <p className="mb-6 text-sm uppercase tracking-[0.4em] text-[#D4AF37]">
-            Diana Beauty • Linköping
+          <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D4AF37] md:text-xs">
+            Diana Beauty
           </p>
 
-          <h1 className="text-5xl font-extralight leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
-            Framhäv din
+          <h1 className="font-serif text-3xl leading-[1.12] text-white md:text-5xl">
+            Framhäv din skönhet
             <br />
+            på ett{" "}
             <span className="italic text-[#D4AF37]">
-              naturliga
-            </span>
-            <br />
-            <span className="italic text-[#D4AF37]">
-              skönhet
-            </span>
+              naturligt
+            </span>{" "}
+            sätt
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-8 text-gray-300">
-            Professionella frans- och brynbehandlingar med fokus på kvalitet,
-            precision och ett naturligt elegant resultat.
+          <p className="mt-4 max-w-[390px] text-xs leading-5 text-gray-200 md:text-sm md:leading-6">
+            Professionella frans- och brynbehandlingar
+            med fokus på kvalitet, trygghet och ett naturligt resultat.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-5">
-
+          {/* Knappar */}
+          <div className="mt-5 flex flex-wrap gap-3">
             <a
-              href="https://www.bokadirekt.se/places/dianabeauty-52970"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-[#D4AF37] px-8 py-4 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-[#e7c85b] hover:shadow-[0_0_30px_rgba(212,175,55,0.35)]"
+              href="#booking"
+              className="rounded-sm border border-[#D4AF37] bg-[#B18B38] px-6 py-2.5 text-[10px] font-bold uppercase tracking-wide text-black transition hover:bg-[#D4AF37]"
             >
-              Boka tid
+              Boka din tid
             </a>
 
             <a
               href="#services"
-              className="rounded-full border border-[#D4AF37] px-8 py-4 text-white transition-all duration-300 hover:bg-[#D4AF37] hover:text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.25)]"
+              className="rounded-sm border border-[#B18B38] px-6 py-2.5 text-[10px] font-bold uppercase tracking-wide text-white transition hover:bg-[#B18B38] hover:text-black"
             >
               Våra behandlingar
             </a>
-
           </div>
 
-          <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
+          {/* Fördelar */}
+          <div className="mt-7 grid grid-cols-2 gap-x-5 gap-y-4 md:grid-cols-4 md:gap-5">
 
-            <div>
-              <Award className="h-8 w-8 text-[#D4AF37]" />
-              <p className="mt-2 font-medium text-white">
-                Certifierad
-              </p>
-              <span className="text-sm text-gray-400">
-                Sedan 2018
-              </span>
+            <div className="flex items-center gap-2">
+              <Award className="h-5 w-5 shrink-0 text-[#D4AF37]" />
+              <div>
+                <p className="text-[10px] font-semibold text-white">
+                  Certifierad
+                </p>
+                <p className="text-[9px] text-gray-400">
+                  Sedan 2018
+                </p>
+              </div>
             </div>
 
-            <div>
-              <Star className="h-8 w-8 text-[#D4AF37]" />
-              <p className="mt-2 font-medium text-white">
-                Premium
-              </p>
-              <span className="text-sm text-gray-400">
-                Produkter
-              </span>
+            <div className="flex items-center gap-2">
+              <Star className="h-5 w-5 shrink-0 text-[#D4AF37]" />
+              <div>
+                <p className="text-[10px] font-semibold text-white">
+                  Hög kvalitet
+                </p>
+                <p className="text-[9px] text-gray-400">
+                  Premiumprodukter
+                </p>
+              </div>
             </div>
 
-            <div>
-              <Heart className="h-8 w-8 text-[#D4AF37]" />
-              <p className="mt-2 font-medium text-white">
-                Personlig
-              </p>
-              <span className="text-sm text-gray-400">
-                Service
-              </span>
+            <div className="flex items-center gap-2">
+              <Heart className="h-5 w-5 shrink-0 text-[#D4AF37]" />
+              <div>
+                <p className="text-[10px] font-semibold text-white">
+                  Kundfokus
+                </p>
+                <p className="text-[9px] text-gray-400">
+                  Trygghet & omsorg
+                </p>
+              </div>
             </div>
 
-            <div>
-              <MapPin className="h-8 w-8 text-[#D4AF37]" />
-              <p className="mt-2 font-medium text-white">
-                Linköping
-              </p>
-              <span className="text-sm text-gray-400">
-                Centralt
-              </span>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-5 w-5 shrink-0 text-[#D4AF37]" />
+              <div>
+                <p className="text-[10px] font-semibold text-white">
+                  Linköping
+                </p>
+                <p className="text-[9px] text-gray-400">
+                  Centralt beläget
+                </p>
+              </div>
             </div>
 
           </div>
-
         </div>
       </div>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-[#D4AF37]">
-        <ChevronDown className="h-8 w-8" />
-      </div>
-
     </section>
   );
 }
