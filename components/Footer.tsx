@@ -16,26 +16,26 @@ const addressUrl =
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#D4AF37]/25 bg-black px-4 py-8">
+    <footer className="border-t border-[#D4AF37]/30 bg-[#FAF8F3] px-4 py-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-[1.2fr_1fr_1.2fr]">
           <div>
             <Image
-              src="/images/diana-logo-test.png"
+              src="/images/diana-beauty-logo-final.png"
               alt="Diana Beauty logotyp"
               width={180}
               height={75}
               className="block h-auto w-[140px] object-contain object-left"
             />
 
-            <p className="mt-3 max-w-[230px] text-[11px] leading-5 text-gray-400">
+            <p className="mt-3 max-w-[230px] text-[11px] leading-5 text-[#81786D]">
               Professionella frans- och brynbehandlingar i Linköping
               med fokus på kvalitet, precision och naturlig skönhet.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#96732D]">
               Meny
             </h3>
 
@@ -44,7 +44,7 @@ export default function Footer() {
                 <a
                   key={link.title}
                   href={link.href}
-                  className="text-[11px] text-gray-400 transition hover:text-[#D4AF37]"
+                  className="text-[11px] text-[#625B52] transition hover:text-[#B18B38]"
                 >
                   {link.title}
                 </a>
@@ -53,24 +53,24 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#D4AF37]">
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#96732D]">
               Kontakt
             </h3>
 
             <div className="space-y-3">
               <a
                 href="tel:+46700475204"
-                className="flex items-center gap-2 text-[11px] text-gray-300 transition hover:text-[#D4AF37]"
+                className="flex items-center gap-2 text-[11px] text-[#625B52] transition hover:text-[#B18B38]"
               >
-                <Phone className="h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
+                <Phone className="h-3.5 w-3.5 shrink-0 text-[#B18B38]" />
                 070-047 52 04
               </a>
 
               <a
                 href="mailto:dianabeauty.db@gmail.com"
-                className="flex items-center gap-2 break-all text-[11px] text-gray-300 transition hover:text-[#D4AF37]"
+                className="flex items-center gap-2 break-all text-[11px] text-[#625B52] transition hover:text-[#B18B38]"
               >
-                <Mail className="h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
+                <Mail className="h-3.5 w-3.5 shrink-0 text-[#B18B38]" />
                 dianabeauty.db@gmail.com
               </a>
 
@@ -78,9 +78,9 @@ export default function Footer() {
                 href={addressUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2 text-[11px] leading-5 text-gray-300 transition hover:text-[#D4AF37]"
+                className="flex items-start gap-2 text-[11px] leading-5 text-[#625B52] transition hover:text-[#B18B38]"
               >
-                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#B18B38]" />
                 <span>
                   Engelbrektsgatan 11
                   <br />
@@ -92,25 +92,25 @@ export default function Footer() {
                 href="https://www.instagram.com/dianabeauty.db"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[11px] text-gray-300 transition hover:text-[#D4AF37]"
+                className="flex items-center gap-2 text-[11px] text-[#625B52] transition hover:text-[#B18B38]"
               >
-                <AtSign className="h-3.5 w-3.5 shrink-0 text-[#D4AF37]" />
+                <AtSign className="h-3.5 w-3.5 shrink-0 text-[#B18B38]" />
                 @dianabeauty.db
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-5 text-center sm:flex-row">
-          <p className="text-[10px] text-gray-500">
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-[#D4AF37]/25 pt-5 text-center sm:flex-row">
+          <p className="text-[10px] text-[#81786D]">
             © {new Date().getFullYear()} Diana Beauty. Alla rättigheter förbehållna.
           </p>
 
-          <p className="text-[10px] text-gray-500">
+          <p className="text-[10px] text-[#81786D]">
             Engelbrektsgatan 11 · Linköping
           </p>
 
-          <p className="text-[10px] text-gray-500">
+          <p className="text-[10px] text-[#81786D]">
             Webbplatsen är byggd med omsorg ♥
           </p>
         </div>

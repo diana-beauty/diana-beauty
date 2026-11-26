@@ -43,10 +43,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-500 ${
+      className={`sticky top-0 z-40 w-full border-b border-[#D4AF37]/20 transition-all duration-500 ${
         scrolled
-          ? "border-b border-[#D4AF37]/20 bg-black/90 shadow-2xl backdrop-blur-2xl"
-          : "bg-black/30"
+          ? "bg-[#F2EBDD]/95 shadow-lg backdrop-blur-xl"
+          : "bg-[#FAF8F3]"
       }`}
     >
       <nav className="flex h-20 w-full items-center justify-between gap-3 px-4 lg:px-6">
@@ -58,22 +58,22 @@ export default function Navbar() {
           className="flex h-full shrink-0 items-center"
         >
           <Image
-            src="/images/diana-logo-test.png"
+            src="/images/diana-beauty-logo-final.png"
             alt="Diana Beauty"
             width={180}
             height={75}
             priority
-           className="block h-auto max-h-[85px] w-[210px] rounded-2xl object-contain object-left transition duration-300 hover:scale-[1.03] lg:w-[225px]"
+            className="block h-auto max-h-[85px] w-[210px] rounded-2xl object-contain object-left transition duration-300 hover:scale-[1.03] lg:w-[225px]"
           />
         </a>
 
         {/* Dator-menyn */}
-        <ul className="hidden items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-white lg:flex xl:gap-6">
+        <ul className="hidden items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#292521] lg:flex xl:gap-6">
           {links.map((link) => (
             <li key={link.title}>
               <a
                 href={link.href}
-                className="transition duration-300 hover:text-[#D4AF37]"
+                className="transition duration-300 hover:text-[#B18B38]"
               >
                 {link.title}
               </a>
@@ -95,7 +95,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white lg:hidden"
+            className="text-[#292521] lg:hidden"
             aria-label={menuOpen ? "Stäng meny" : "Öppna meny"}
             aria-expanded={menuOpen}
           >
@@ -110,14 +110,14 @@ export default function Navbar() {
           menuOpen ? "max-h-[600px]" : "max-h-0"
         }`}
       >
-        <div className="border-t border-[#D4AF37]/20 bg-black/95 backdrop-blur-xl">
+        <div className="border-t border-[#D4AF37]/20 bg-[#F2EBDD]">
           <div className="flex flex-col space-y-5 px-6 py-6">
             {links.map((link) => (
               <a
                 key={link.title}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-base text-white transition hover:text-[#D4AF37]"
+                className="text-base text-[#292521] transition hover:text-[#B18B38]"
               >
                 {link.title}
               </a>

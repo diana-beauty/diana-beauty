@@ -109,42 +109,42 @@ type Service = {
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <article className="flex h-full flex-col rounded-xl border border-[#D4AF37]/25 bg-[#141414] p-4 transition duration-300 hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.12)]">
+    <article className="flex h-full flex-col rounded-xl border border-[#D4AF37]/30 bg-white p-4 shadow-sm transition duration-300 hover:border-[#B18B38] hover:shadow-md">
       <div className="flex-1">
         {service.campaign && (
-          <span className="mb-3 inline-block rounded-full bg-[#D4AF37]/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#D4AF37]">
+          <span className="mb-3 inline-block rounded-full bg-[#B18B38]/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#96732D]">
             Kampanj till 30 november 2026
           </span>
         )}
 
         <div className="flex items-start gap-2">
-          <Sparkles className="mt-1 h-4 w-4 shrink-0 text-[#D4AF37]" />
-          <h3 className="text-sm font-semibold leading-6 text-white">
+          <Sparkles className="mt-1 h-4 w-4 shrink-0 text-[#B18B38]" />
+          <h3 className="text-sm font-semibold leading-6 text-[#292521]">
             {service.name}
           </h3>
         </div>
 
         {service.description && (
-          <p className="mt-2 text-xs leading-5 text-gray-400">
+          <p className="mt-2 text-xs leading-5 text-[#81786D]">
             {service.description}
           </p>
         )}
       </div>
 
-      <div className="mt-4 flex items-end justify-between gap-2 border-t border-white/10 pt-3">
+      <div className="mt-4 flex items-end justify-between gap-2 border-t border-[#E5DCCB] pt-3">
         <div>
-          <p className="flex items-center gap-1 text-xs text-gray-400">
-            <Clock3 className="h-3 w-3 text-[#D4AF37]" />
+          <p className="flex items-center gap-1 text-xs text-[#81786D]">
+            <Clock3 className="h-3 w-3 text-[#B18B38]" />
             {service.time}
           </p>
 
           <div className="mt-2 flex flex-wrap items-center gap-2">
             {service.oldPrice && (
-              <span className="text-xs text-gray-500 line-through">
+              <span className="text-xs text-gray-400 line-through">
                 {service.oldPrice}
               </span>
             )}
-            <span className="text-base font-bold text-[#D4AF37]">
+            <span className="text-base font-bold text-[#A8873E]">
               {service.price}
             </span>
           </div>
@@ -154,7 +154,7 @@ function ServiceCard({ service }: { service: Service }) {
           href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 rounded-full border border-[#B18B38] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#D4AF37] hover:text-black"
+          className="shrink-0 rounded-full border border-[#B18B38] px-4 py-2 text-xs font-semibold text-[#292521] transition hover:bg-[#B18B38] hover:text-white"
         >
           Boka
         </a>
@@ -169,19 +169,15 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-[#080808] px-4 py-10 md:px-6 md:py-12"
+      className="bg-[#FAF8F3] px-4 py-10 md:px-6 md:py-12"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#D4AF37]">
-            Diana Beauty • Linköping
-          </p>
+  <h2 className="font-serif text-3xl text-[#292521] md:text-4xl">
+    Våra behandlingar
+  </h2>
 
-          <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
-            Våra behandlingar
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-gray-400">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#81786D]">
             Välj en kategori för att se behandlingar, priser och behandlingstider.
           </p>
 
@@ -198,7 +194,7 @@ export default function Services() {
               <div
                 key={category.title}
                 id={index === 0 ? "lash-extensions" : undefined}
-                className="overflow-hidden rounded-xl border border-[#D4AF37]/25 bg-[#111111]"
+                className="overflow-hidden rounded-xl border border-[#D4AF37]/30 bg-[#F2EBDD]"
               >
                 <button
                   type="button"
@@ -207,21 +203,21 @@ export default function Services() {
                   onClick={() =>
                     setOpenCategory(isOpen ? null : index)
                   }
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-[#D4AF37]/[0.06] md:px-6"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-[#EDE3D1] md:px-6"
                 >
                   <span className="flex min-w-0 items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10">
-                      <CategoryIcon className="h-5 w-5 text-[#D4AF37]" />
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-white">
+                      <CategoryIcon className="h-5 w-5 text-[#A8873E]" />
                     </span>
 
                     <span className="min-w-0">
-                      <span className="block font-serif text-base text-[#D4AF37] md:text-lg">
+                      <span className="block font-serif text-base text-[#96732D] md:text-lg">
                         {category.title}
                       </span>
-                      <span className="mt-1 block text-xs leading-5 text-gray-400">
+                      <span className="mt-1 block text-xs leading-5 text-[#625B52]">
                         {category.subtitle}
                       </span>
-                      <span className="mt-1 block text-[11px] text-gray-500">
+                      <span className="mt-1 block text-[11px] text-[#81786D]">
                         {category.services.length} behandlingar
                       </span>
                     </span>
@@ -229,7 +225,7 @@ export default function Services() {
 
                   <ChevronDown
                     aria-hidden="true"
-                    className={`h-5 w-5 shrink-0 text-[#D4AF37] transition-transform duration-300 ${
+                    className={`h-5 w-5 shrink-0 text-[#A8873E] transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -238,7 +234,7 @@ export default function Services() {
                 {isOpen && (
                   <div
                     id={panelId}
-                    className="border-t border-[#D4AF37]/20 p-3 md:p-5"
+                    className="border-t border-[#D4AF37]/30 p-3 md:p-5"
                   >
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                       {category.services.map((service) => (
@@ -255,12 +251,12 @@ export default function Services() {
           })}
         </div>
 
-        <div className="mt-10 rounded-xl border border-[#D4AF37]/25 bg-[#141414] px-5 py-8 text-center">
-          <h3 className="font-serif text-xl text-white">
+        <div className="mt-10 rounded-xl border border-[#D4AF37]/30 bg-[#F2EBDD] px-5 py-8 text-center">
+          <h3 className="font-serif text-xl text-[#292521]">
             Hittar du inte det du söker?
           </h3>
 
-          <p className="mt-3 text-sm leading-6 text-gray-400">
+          <p className="mt-3 text-sm leading-6 text-[#81786D]">
             Se hela tjänsteutbudet och lediga tider på Bokadirekt.
           </p>
 
@@ -268,7 +264,7 @@ export default function Services() {
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-block rounded-md bg-[#D4AF37] px-7 py-3 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-[#e7c85b]"
+            className="mt-5 inline-block rounded-md bg-[#B18B38] px-7 py-3 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-[#96732D]"
           >
             Se alla behandlingar
           </a>

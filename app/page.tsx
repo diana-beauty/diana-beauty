@@ -11,11 +11,11 @@ import BookingPanel from "@/components/BookingPanel";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full bg-[#080808]">
+    <main className="min-h-screen w-full bg-[#FAF8F3]">
       <div className="grid w-full grid-cols-1 items-start md:grid-cols-[minmax(0,1fr)_360px]">
 
         {/* Hemsidans huvudinnehåll */}
-        <div className="min-w-0 overflow-hidden">
+        <div className="min-w-0 overflow-hidden bg-[#FAF8F3]">
           <Navbar />
 
           <Hero />
@@ -27,12 +27,12 @@ export default function Home() {
           <Gallery />
 
           {/* Om Diana, kundomdömen och kontakt */}
-          <div className="grid grid-cols-1 gap-0 border-t border-[#D4AF37]/20 md:grid-cols-3">
-            <div className="border-b border-[#D4AF37]/20 md:border-b-0 md:border-r">
+          <div className="grid grid-cols-1 gap-0 border-t border-[#D4AF37]/30 md:grid-cols-3">
+            <div className="border-b border-[#D4AF37]/30 md:border-b-0 md:border-r">
               <About />
             </div>
 
-            <div className="border-b border-[#D4AF37]/20 md:border-b-0 md:border-r">
+            <div className="border-b border-[#D4AF37]/30 md:border-b-0 md:border-r">
               <Reviews />
             </div>
 
@@ -44,7 +44,7 @@ export default function Home() {
           <Footer />
         </div>
 
-        {/* Bokningspanel */}
+        {/* Mörk bokningspanel */}
         <aside className="min-w-0 w-full bg-[#080808] p-3 md:sticky md:top-0 md:h-screen md:overflow-y-auto">
           <BookingPanel />
         </aside>
