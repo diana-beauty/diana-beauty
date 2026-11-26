@@ -63,7 +63,7 @@ export default function Navbar() {
             width={180}
             height={75}
             priority
-            className="block h-auto max-h-[75px] w-[180px] rounded-2xl object-contain object-left transition duration-300 hover:scale-[1.03] lg:w-[195px]"
+           className="block h-auto max-h-[85px] w-[210px] rounded-2xl object-contain object-left transition duration-300 hover:scale-[1.03] lg:w-[225px]"
           />
         </a>
 
