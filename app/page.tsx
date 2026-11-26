@@ -12,40 +12,46 @@ import BookingPanel from "@/components/BookingPanel";
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-[#FAF8F3]">
-      <div className="grid w-full grid-cols-1 items-start md:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="grid min-h-screen w-full grid-cols-1 items-start 2xl:grid-cols-[minmax(0,1fr)_360px]">
 
-        {/* Hemsidans huvudinnehåll */}
-        <div className="min-w-0 overflow-hidden bg-[#FAF8F3]">
+        {/* Huvudinnehåll */}
+        <div className="min-w-0 bg-[#FAF8F3]">
           <Navbar />
 
           <Hero />
 
-          {/* Behandlingar */}
           <Services />
 
-          {/* Informationssektion */}
           <Gallery />
 
-          {/* Om Diana, kundomdömen och kontakt */}
-          <div className="grid grid-cols-1 gap-0 border-t border-[#D4AF37]/30 md:grid-cols-3">
-            <div className="border-b border-[#D4AF37]/30 md:border-b-0 md:border-r">
-              <About />
+          {/* Informationssektion */}
+          <section className="border-t border-[#D4AF37]/30">
+
+            {/* Om Diana och kontakt */}
+            <div className="grid grid-cols-1 gap-0 lg:grid-cols-2">
+
+              <div className="min-w-0 border-b border-[#D4AF37]/30 lg:border-b-0 lg:border-r">
+                <About />
+              </div>
+
+              <div className="min-w-0 border-b border-[#D4AF37]/30 lg:border-b-0">
+                <Contact />
+              </div>
+
             </div>
 
-            <div className="border-b border-[#D4AF37]/30 md:border-b-0 md:border-r">
+            {/* Kundomdömen får en egen bred sektion */}
+            <div className="min-w-0 border-t border-[#D4AF37]/30">
               <Reviews />
             </div>
 
-            <div>
-              <Contact />
-            </div>
-          </div>
+          </section>
 
           <Footer />
         </div>
 
-        {/* Mörk bokningspanel */}
-        <aside className="min-w-0 w-full bg-[#080808] p-3 md:sticky md:top-0 md:h-screen md:overflow-y-auto">
+        {/* Bokningspanel – endast på extra breda skärmar */}
+        <aside className="sticky top-0 hidden h-screen min-w-0 overflow-y-auto bg-[#080808] p-3 2xl:block">
           <BookingPanel />
         </aside>
 

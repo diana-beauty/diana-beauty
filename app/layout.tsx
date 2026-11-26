@@ -1,21 +1,30 @@
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://diana-beauty-kappa.vercel.app"),
+
   title: "Diana Beauty | Fransar & Bryn i Linköping",
+
   description:
     "Professionella frans- och brynbehandlingar i Linköping. Lash Lift, Brow Lift, färgning och formning. Boka enkelt online hos Diana Beauty.",
+
   keywords: [
     "Diana Beauty",
     "Fransar Linköping",
@@ -25,14 +34,15 @@ export const metadata: Metadata = {
     "Skönhetssalong Linköping",
     "Fransförlängning",
   ],
+
   authors: [{ name: "Diana Beauty" }],
   creator: "Diana Beauty",
-  metadataBase: new URL("https://dianabeauty.se"),
+
   openGraph: {
-    title: "Diana Beauty",
+    title: "Diana Beauty | Fransar & Bryn",
     description:
       "Professionella frans- och brynbehandlingar i Linköping.",
-    url: "https://dianabeauty.se",
+    url: "https://diana-beauty-kappa.vercel.app",
     siteName: "Diana Beauty",
     locale: "sv_SE",
     type: "website",
@@ -55,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="sv"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${playfair.variable} ${lato.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

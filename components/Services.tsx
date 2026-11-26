@@ -11,6 +11,8 @@ import {
   Flower2,
   Heart,
   Clock3,
+  ScanFace,
+  WandSparkles,
 } from "lucide-react";
 
 const bookingUrl =
@@ -61,7 +63,7 @@ const categories = [
   {
     title: "Lash Lift & Brow Lift",
     subtitle: "Lyft fram dina naturliga fransar och bryn.",
-    icon: Sparkles,
+    icon: ScanFace,
     services: [
       { name: "Kombobehandling Lash & Brow Lift", price: "1 250 kr", time: "80 min", description: "Brow Lift och Lash Lift inklusive keratinbehandling, trådning av bryn och fransfärg." },
       { name: "Lash Lift borttagning / avslappning", price: "200 kr", time: "15 min", description: "Korrigering av ett tidigare Lash Lift. Böjen kan tas bort helt eller mjukas upp efter bedömning." },
@@ -78,7 +80,7 @@ const categories = [
   {
     title: "Trådning & färgning",
     subtitle: "Forma och framhäv dina bryn och fransar.",
-    icon: Flower2,
+    icon: WandSparkles,
     services: [
       { name: "Trådning av bryn och färgning", price: "400 kr", time: "25 min" },
       { name: "Trådning av hela ansiktet", price: "350 kr", time: "30 min" },
@@ -109,42 +111,42 @@ type Service = {
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <article className="flex h-full flex-col rounded-xl border border-[#D4AF37]/30 bg-white p-4 shadow-sm transition duration-300 hover:border-[#B18B38] hover:shadow-md">
+    <article className="flex h-full flex-col rounded-xl border border-[#D4AF37]/30 bg-white p-5 shadow-sm transition duration-300 hover:border-[#B18B38] hover:shadow-md md:p-6">
       <div className="flex-1">
         {service.campaign && (
-          <span className="mb-3 inline-block rounded-full bg-[#B18B38]/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#96732D]">
+          <span className="mb-3 inline-block rounded-full bg-[#B18B38]/15 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#96732D]">
             Kampanj till 30 november 2026
           </span>
         )}
 
         <div className="flex items-start gap-2">
-          <Sparkles className="mt-1 h-4 w-4 shrink-0 text-[#B18B38]" />
-          <h3 className="text-sm font-semibold leading-6 text-[#292521]">
+          <Sparkles className="mt-1 h-5 w-5 shrink-0 text-[#B18B38]" />
+          <h3 className="text-base font-semibold leading-7 text-[#292521] md:text-lg">
             {service.name}
           </h3>
         </div>
 
         {service.description && (
-          <p className="mt-2 text-xs leading-5 text-[#81786D]">
+          <p className="mt-3 text-sm leading-7 text-[#625B52] md:text-base">
             {service.description}
           </p>
         )}
       </div>
 
-      <div className="mt-4 flex items-end justify-between gap-2 border-t border-[#E5DCCB] pt-3">
+      <div className="mt-5 flex items-end justify-between gap-3 border-t border-[#E5DCCB] pt-4">
         <div>
-          <p className="flex items-center gap-1 text-xs text-[#81786D]">
-            <Clock3 className="h-3 w-3 text-[#B18B38]" />
+          <p className="flex items-center gap-2 text-sm text-[#625B52]">
+            <Clock3 className="h-4 w-4 shrink-0 text-[#B18B38]" />
             {service.time}
           </p>
 
           <div className="mt-2 flex flex-wrap items-center gap-2">
             {service.oldPrice && (
-              <span className="text-xs text-gray-400 line-through">
+              <span className="text-sm text-gray-400 line-through">
                 {service.oldPrice}
               </span>
             )}
-            <span className="text-base font-bold text-[#A8873E]">
+            <span className="text-lg font-bold text-[#A8873E]">
               {service.price}
             </span>
           </div>
@@ -154,7 +156,7 @@ function ServiceCard({ service }: { service: Service }) {
           href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 rounded-full border border-[#B18B38] px-4 py-2 text-xs font-semibold text-[#292521] transition hover:bg-[#B18B38] hover:text-white"
+          className="shrink-0 rounded-full border border-[#B18B38] px-5 py-2.5 text-sm font-semibold text-[#292521] transition hover:bg-[#B18B38] hover:text-white"
         >
           Boka
         </a>
@@ -169,22 +171,22 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-[#FAF8F3] px-4 py-10 md:px-6 md:py-12"
+      className="bg-[#FAF8F3] px-4 py-12 md:px-6 md:py-16"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 text-center">
-  <h2 className="font-serif text-3xl text-[#292521] md:text-4xl">
-    Våra behandlingar
-  </h2>
+        <div className="mb-10 text-center">
+          <h2 className="font-serif text-3xl leading-tight text-[#292521] md:text-4xl">
+            Våra behandlingar
+          </h2>
 
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#81786D]">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#625B52]">
             Välj en kategori för att se behandlingar, priser och behandlingstider.
           </p>
 
           <div className="mx-auto mt-5 h-px w-16 bg-[#B18B38]" />
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {categories.map((category, index) => {
             const isOpen = openCategory === index;
             const CategoryIcon = category.icon;
@@ -203,21 +205,21 @@ export default function Services() {
                   onClick={() =>
                     setOpenCategory(isOpen ? null : index)
                   }
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-[#EDE3D1] md:px-6"
+                  className="flex w-full items-center justify-between gap-4 px-4 py-5 text-left transition hover:bg-[#EDE3D1] sm:px-5 md:px-6 md:py-6"
                 >
-                  <span className="flex min-w-0 items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-white">
-                      <CategoryIcon className="h-5 w-5 text-[#A8873E]" />
+                  <span className="flex min-w-0 items-center gap-3 md:gap-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/40 bg-white md:h-14 md:w-14">
+                      <CategoryIcon className="h-6 w-6 text-[#A8873E]" />
                     </span>
 
                     <span className="min-w-0">
-                      <span className="block font-serif text-base text-[#96732D] md:text-lg">
+                      <span className="block font-serif text-lg leading-snug text-[#96732D] md:text-xl">
                         {category.title}
                       </span>
-                      <span className="mt-1 block text-xs leading-5 text-[#625B52]">
+                      <span className="mt-2 block text-sm leading-6 text-[#625B52] md:text-base">
                         {category.subtitle}
                       </span>
-                      <span className="mt-1 block text-[11px] text-[#81786D]">
+                      <span className="mt-1.5 block text-xs text-[#81786D] md:text-sm">
                         {category.services.length} behandlingar
                       </span>
                     </span>
@@ -236,7 +238,7 @@ export default function Services() {
                     id={panelId}
                     className="border-t border-[#D4AF37]/30 p-3 md:p-5"
                   >
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                       {category.services.map((service) => (
                         <ServiceCard
                           key={service.name}
@@ -251,12 +253,12 @@ export default function Services() {
           })}
         </div>
 
-        <div className="mt-10 rounded-xl border border-[#D4AF37]/30 bg-[#F2EBDD] px-5 py-8 text-center">
-          <h3 className="font-serif text-xl text-[#292521]">
+        <div className="mt-10 rounded-xl border border-[#D4AF37]/30 bg-[#F2EBDD] px-5 py-9 text-center">
+          <h3 className="font-serif text-2xl text-[#292521] md:text-3xl">
             Hittar du inte det du söker?
           </h3>
 
-          <p className="mt-3 text-sm leading-6 text-[#81786D]">
+          <p className="mt-4 text-base leading-7 text-[#625B52]">
             Se hela tjänsteutbudet och lediga tider på Bokadirekt.
           </p>
 
@@ -264,7 +266,7 @@ export default function Services() {
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-block rounded-md bg-[#B18B38] px-7 py-3 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-[#96732D]"
+            className="mt-6 inline-block rounded-md bg-[#B18B38] px-7 py-3.5 text-base font-bold uppercase tracking-wider text-white transition hover:bg-[#96732D]"
           >
             Se alla behandlingar
           </a>

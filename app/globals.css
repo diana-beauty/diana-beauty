@@ -2,15 +2,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8F5EF;
-  --foreground: #171717;
+  --background: #FAF8F3;
+  --foreground: #292521;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-lato);
+  --font-serif: var(--font-playfair);
+  --font-mono: ui-monospace, monospace;
 }
 
 html {
@@ -20,13 +21,39 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lato), Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Markering av text */
+/* Rubriker */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Formulär och knappar */
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-lato), Arial, sans-serif;
+}
+
+/* Textmarkering */
 ::selection {
   background: #D4AF37;
-  color: black;
+  color: #171717;
 }
 
 /* Scrollbar */

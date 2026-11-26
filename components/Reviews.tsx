@@ -18,47 +18,54 @@ export default function Reviews() {
   return (
     <section
       id="reviews"
-      className="h-full min-w-0 bg-[#FAF8F3] px-3 py-6"
+      className="min-w-0 bg-[#FAF8F3] px-5 py-14 md:px-8 md:py-16"
     >
-      <div className="min-w-0">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-[#96732D]">
-          Kundernas ord
-        </p>
+      <div className="mx-auto max-w-6xl">
 
-        <h2 className="mt-3 font-serif text-xl text-[#292521]">
-          Vad våra kunder säger
-        </h2>
+        {/* Sektionsrubrik */}
+        <div className="mb-10 text-center">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#96732D]">
+            Kundernas ord
+          </p>
 
-        <div className="mt-3 h-px w-10 bg-[#B18B38]" />
+          <h2 className="mt-4 font-serif text-3xl leading-tight text-[#292521] sm:text-4xl">
+            Vad våra kunder säger
+          </h2>
 
-        <div className="mt-5 space-y-3">
+          <div className="mx-auto mt-5 h-px w-20 bg-[#B18B38]" />
+        </div>
+
+        {/* Recensionskort */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {reviews.map((review) => (
             <article
               key={review.name}
-              className="rounded-md border border-[#D4AF37]/30 bg-white p-3 shadow-sm transition hover:border-[#B18B38]"
+              className="flex h-full flex-col rounded-2xl border border-[#D4AF37]/25 bg-white p-7 shadow-[0_4px_20px_rgba(41,37,33,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#B18B38]/60 hover:shadow-[0_10px_30px_rgba(41,37,33,0.08)] md:p-8"
             >
               <div
-                className="text-sm tracking-wider text-[#B18B38]"
+                className="text-xl tracking-[0.16em] text-[#B18B38]"
                 aria-label="5 av 5 stjärnor"
               >
                 ★★★★★
               </div>
 
-              <p className="mt-2 text-[11px] leading-5 text-[#625B52]">
+              <p className="mt-6 flex-1 text-[16px] leading-8 text-[#625B52]">
                 ”{review.text}”
               </p>
 
-              <div className="mt-3 border-t border-[#E5DCCB] pt-2">
-                <p className="text-[11px] font-semibold text-[#292521]">
+              <div className="mt-7 border-t border-[#EAE2D5] pt-5">
+                <p className="font-serif text-xl text-[#292521]">
                   {review.name}
                 </p>
-                <p className="text-[9px] text-[#81786D]">
+
+                <p className="mt-2 text-[13px] font-medium tracking-wide text-[#96732D]">
                   Kund hos Diana Beauty
                 </p>
               </div>
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

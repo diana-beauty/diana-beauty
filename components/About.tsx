@@ -12,18 +12,22 @@ export default function About() {
   return (
     <section
       id="about"
-      className="h-full min-w-0 bg-[#FAF8F3] px-4 py-6"
+      className="min-w-0 bg-[#FAF8F3] px-4 py-8 md:px-5 md:py-10"
     >
       <div className="min-w-0">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-[#96732D]">
+
+        {/* Introduktion */}
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#96732D]">
           Personlig omtanke
         </p>
 
-        <h2 className="mt-3 font-serif text-xl leading-snug text-[#292521]">
+        {/* Rubrik */}
+        <h2 className="mt-3 font-serif text-2xl leading-snug text-[#292521] md:text-3xl">
           Skönhet med omtanke och precision
         </h2>
 
-        <p className="mt-3 text-xs leading-6 text-[#625B52]">
+        {/* Presentation */}
+        <p className="mt-4 text-[15px] leading-7 text-[#625B52] md:text-base md:leading-8">
           Jag heter Diana och har varit certifierad fransstylist
           sedan 2018. För mig handlar varje behandling om mer
           än bara ett vackert resultat. Jag vill att du ska känna
@@ -33,25 +37,31 @@ export default function About() {
           naturliga skönhet.
         </p>
 
-        <div className="mt-4 space-y-3">
+        {/* Fördelar */}
+        <div className="mt-6 space-y-4">
           {features.map((feature) => (
-            <div key={feature} className="flex items-start gap-2">
-              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#B18B38]" />
-              <span className="text-[11px] leading-5 text-[#625B52]">
+            <div key={feature} className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#B18B38]/10">
+                <Check className="h-4 w-4 text-[#B18B38]" />
+              </span>
+
+              <span className="text-sm leading-6 text-[#625B52] md:text-base">
                 {feature}
               </span>
             </div>
           ))}
         </div>
 
+        {/* Bokningsknapp */}
         <a
           href="https://www.bokadirekt.se/places/dianabeauty-52970"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center rounded-sm border border-[#B18B38] px-3 py-2 text-[10px] font-semibold uppercase tracking-wide text-[#96732D] transition hover:bg-[#B18B38] hover:text-white"
+          className="mt-7 inline-flex min-h-12 items-center justify-center rounded-md border border-[#B18B38] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#96732D] transition duration-300 hover:bg-[#B18B38] hover:text-white"
         >
           Boka behandling
         </a>
+
       </div>
     </section>
   );
